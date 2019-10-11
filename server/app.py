@@ -1,4 +1,5 @@
 from flask import Flask, render_template, jsonify
+
 todos = ['Study Vue', 'Study Flask', 'Study Toy Problems']
 
 app = Flask(__name__,
@@ -15,7 +16,7 @@ def serve_vue_app():
 
 @app.route('/todos', methods=['GET'])
 def serve_all_todos():
-    return jsonify(items = todos)
+    return jsonify({"items": todos})
 
 @app.after_request
 def add_header(req):
